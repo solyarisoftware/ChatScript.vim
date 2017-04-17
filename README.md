@@ -6,12 +6,13 @@ Vim syntax for [ChatScript](https://github.com/bwilcox-1234/ChatScript) topic fi
 
 # Screenshot
 
-|                        |
-|:----------------------:|
-| without ChatScript.vim |
-| ![](example-txt.png)   |
-| with ChatScript.vim    |
-| ![](example-cs.png)    |
+## without ChatScript.vim
+
+![](/example-txt.png)
+
+## Using ChatScript.vim
+
+![](/example-cs.png)
 
 
 
