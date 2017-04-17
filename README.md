@@ -2,7 +2,7 @@
 # ChatScript.vim
 Vim syntax for [ChatScript](https://github.com/bwilcox-1234/ChatScript) topic files.
 
-## Why
+# Why
 I develop all my software possibly using vim editor on a terminal.
 There is not a standard ChatScript syntax highlight for vim, so I created this one.
 
@@ -11,13 +11,13 @@ By example I chose clear different colors for variables `$pemanentvar`, `$$trans
 
 
 ## Screenshot
-**without ChatScript.vim**
+### Without ChatScript.vim
 
 In the screenshot here below, how is visualized a topic file (.top), as a standard text file (no colors!)
 
 ![](/example_txt.png)
 
-**Using ChatScript.vim**
+### Using ChatScript.vim
 
 In the screenshot here below, how is visualized a topic file (.top), using ChatScript.vim syntax highlight, with monokai colorscheme
 
@@ -42,10 +42,15 @@ I love [vim-plug](https://github.com/junegunn/vim-plug) plugin manager.
 Plug 'https://github.com/solyaris/ChatScript.vim'
 ```
 
-## Todo 
+## Todo & Contributions
 I'm not a vimL expert and neither a vim regex nerd. This is my first try, very draft and possibly erroneous. 
 
-Todo: use _regions_ for a better highlight. Any suggestion/pull request welcome.
+- [x] basic coloring, differentiate: functions, topics, rules, patterns, literals sentences.   
+- [x] using different colore for different kind of variables types. 
+- [ ] use _regions_ for a better contextual syntax highlight. 
+
+
+Any suggestion/pull request welcome. Please feel free to contact me via mail for any point.
 
 
 ## Licence
