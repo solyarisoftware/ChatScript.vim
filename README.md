@@ -8,11 +8,11 @@ Vim syntax for [ChatScript](https://github.com/bwilcox-1234/ChatScript) topic fi
 
 ## without ChatScript.vim
 
-![](/example-txt.png)
+![](/example_txt.png)
 
 ## Using ChatScript.vim
 
-![](/example-cs.png)
+![](/example_cs.png)
 
 
 
