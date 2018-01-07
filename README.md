@@ -6,8 +6,8 @@ Vim syntax for [ChatScript](https://github.com/bwilcox-1234/ChatScript) topic fi
 I develop all my software possibly using vim editor on a terminal.
 There is not a standard ChatScript syntax highlight for vim, so I created this one.
 
-My aim is to use colors to help ChatScript _scriptors_ (developers) to highlight different syntax elements and lower down coding errors.
-By example I chose clear different colors for variables `$pemanentvar`, `$$transientvar`, `$_localvar`. 
+My aim is to use colors to help ChatScript _scriptors_ (authors/developers) to highlight different syntax elements and lower down coding errors.
+By example I chose clear different colors for variables `$permanentvar`, `$$transientvar`, `$_localvar`. 
 
 
 ## Screenshot
@@ -42,16 +42,18 @@ I love [vim-plug](https://github.com/junegunn/vim-plug) plugin manager.
 Plug 'https://github.com/solyaris/ChatScript.vim'
 ```
 
+## Changes
+- in v.2. regex are a bit better. 
+- I experimented direct assignement of colors. 
+
 ## Todo & Contributions
-I'm not a vimL expert and neither a vim regex nerd. This is my first try, very draft and possibly erroneous. 
+I'm not a vimL expert and neither a (vim) regex nerd. 
 
-- [x] basic coloring, differentiate: functions, topics, rules, patterns, literals sentences.   
-- [x] using different colore for different kind of variables types. 
-- [ ] use _regions_ for a better contextual syntax highlight. 
+- [x] basic coloring, differentiate: functions, topics, rules, patterns, literals sentences.
+- [x] using different colors for different kind of variables types.
+- [ ] use _regions_ for a better contextual syntax highlight.
 
-
-Any suggestion/pull request welcome. Please feel free to contact me via mail for any point.
-
+Any suggestion/pull request welcome! Please feel free to contact me via mail for any point.
 
 ## Licence
 

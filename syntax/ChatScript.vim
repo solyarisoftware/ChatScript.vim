@@ -8,95 +8,99 @@ if exists("b:current_syntax")
   finish
 endif
 
-"echom "Our syntax highlighting code will go here."
-
-syntax match csRule '[rstu]:'
-syntax match csRule '[a-q]:'
-syntax match csRule '\v\?:' 
-
-syntax match csKeyword 'topic:\|concept:\|table:\|tablemacro:\|outputmacro:\|patternmacro:\|dualmacro:'
-syntax match csKeyword 'bot:\|data:\|canon:\|query:\|plan:\|describe:\|replace:' 
-
-syntax match csComment '\v#.*$' 
-syntax match csTestComment '\v#!.*$' 
-
-" syntax match csLabel  '\a\+_\a\+' 
-syntax match csString '".*"' 
-syntax match csActiveString '\^".*"' 
-
-
 syntax match csWildcard '\*' 
 
-syntax match csSpecialChar '\\n\|\\r\|\\t\|\\' 
 
-syntax match csBracketsDelimiter '\[\|\]'
-syntax match csPatternDelimiter '(\|)'
-syntax match csBlockDelimiter '{\|}'
+syntax match csTopicName '\v\~[a-z_\.A-Z]*'
+syntax match csFunction  '\v\^[a-z_\.A-Z]+'
 
-syntax match csTopicName '\~\a*'
-syntax match csFunction  '\^[a-z_\.A-Z]\+'
-
-" Match variables
-syntax match csMatchVariable '_\(\d*\|\*\)' 
 
 " User permanent variables
-syntax match csPermanentVariable  '\$[a-zA-Z][._0-9a-zA-Z]\+'
+syntax match csPermanentVariable  '\v\$[a-zA-Z][\._0-9a-zA-Z\[\]]*'
 
 " User transient variables
-syntax match csTransientVariable  '\$\$[a-zA-Z][._0-9a-zA-Z]\+'
+syntax match csTransientVariable  '\v\$\$[a-zA-Z][\._0-9a-zA-Z\[\]]*'
 
 " Local variables
-syntax match csLocalVariable  '\$_[a-zA-Z][._0-9a-zA-Z]\+'
+syntax match csLocalVariable  '\v\$_[a-zA-Z][\._0-9a-zA-Z\[\]]*'
 
 " Fact set
 syntax match csFactset '@\(\d*\|\*\)' 
 
 " Boolean & state
-syntax match csBoolean '\(null\|true\|false\)'
+syntax match csBoolean '\v(null|true|false)'
 
 " Assigment
-syntax match csOperator '\(?!\|+=\|-=\|\\*=\|=\|%=\|*=\|<<=\|>>=\|<<\|>>\|&=\|^=\)'
-syntax match csOperator '\'\|\(!\|==\|AND\|and\|OR\|or\|>=\|<=\|!=\|>\|<\|?\)'
+syntax match csOperator '\v(\?!|\+\=|-\=|\=|\%\=|\*\=|<<\=|>>\=|<<|>>|&\=|\^\=)'
+syntax match csOperator '\v(\'|!|\?|\=\=|and|or|AND|OR|>\=|<\=|!\=|>|<)'
 
 " Execution flow
-syntax match csOperator '\(\^if\|if\|else\|\^else\|else if\|\^else if\|loop\|\^loop\)'
+syntax match csOperator '\v(\s*^if\s*|\s*if\s*|\s*else\s*|\s*^else\s*|\s*else if\s*|\s*^else if\s*|\s*loop\s*|\s*^loop\s*)'
+
+" Match variables
+syntax match csMatchVariable '\v_\d+'
+syntax match csMatchVariable '\v_\*'
+
+syntax match csRule '\v^\s*[rstu]:'
+syntax match csRule '\v^\s*[a-q]:'
+syntax match csRule '\v^\s*\?:' 
 
 
-" mapping with standard vim highlight colors
-highlight link csOperator          Operator
-highligh  link csSpecialChar       Character
-highligh  link csPreProc           PreProc
-highlight link csRule              Keyword
-highlight link csFactset           Keyword
+syntax match csBracketsDelimiter '\v[\[\]]'
+syntax match csPatternDelimiter '\v[\(\)]'
+syntax match csBlockDelimiter '\v[{}]'
 
-highlight link csComment           Comment
-highlight link csTestComment       String
+syntax match csKeyword '\v(topic:|concept:|table:|tablemacro:|outputmacro:|patternmacro:|dualmacro:)'
+syntax match csKeyword '\v(bot:|data:|canon:|query:|plan:|describe:|replace:)' 
 
-highlight link csPatternDelimiter  Ignore 
-highlight link csBracketsDelimiter Keyword
-highlight link csBlockDelimiter    Ignore
+syntax match csComment '\v^\s*#.*$' 
+syntax match csTestComment '\v^\s*#!.*$' 
 
-highlight link csWildcard          Keyword 
+
+syntax match csString '".*"' 
+syntax match csString '\'.*\'' 
+syntax match csActiveString '\^".*"' 
+syntax match csActiveString '\^\'.*\'' 
+syntax match csSpecialChar '\v(\n|\r|\t|\\)' 
+
+"
+" define colors
+" https://github.com/guns/xterm-color-table.vim
+"
+highlight csRule              ctermfg=9
+highlight csKeyword           ctermfg=51
+highlight csOperator          ctermfg=215
+
+highlight csSpecialChar       ctermfg=12
+highlight csFactset           ctermfg=12
+
+highlight csComment           ctermfg=8 
+highlight csTestComment       ctermfg=7
+
+highlight csPatternDelimiter  ctermfg=15
+highlight csBracketsDelimiter ctermfg=7
+highlight csBlockDelimiter    ctermfg=215
+
 
 " variables
-highlight link csMatchVariable     Keyword
-highlight link csSystemVariable    StorageClass
-highlight link csPermanentVariable Identifier
-highlight link csTransientVariable StorageClass
-highlight link csLocalVariable     String
+highlight csSystemVariable    ctermfg=15
+highlight csPermanentVariable ctermfg=10
+highlight csMatchVariable     ctermfg=123
+highlight csWildcard          ctermfg=123
+highlight csLocalVariable     ctermfg=35
+highlight csTransientVariable ctermfg=24
 
-highlight link csName              Statement
-highlight link csKeyword           Keyword
-highlight link csTopicName         Keyword
-highlight link csFunction          Special
-highlight link csBoolean           String
-highlight link csConstant          Constant
+highlight csTopicName         ctermfg=10
+highlight csFunction          ctermfg=37
+
+highlight csBoolean           ctermfg=15
+highlight csConstant          ctermfg=15
 
 " strings
-highlight link csString            String
-highlight link csActiveString      String 
+highlight csString            ctermfg=69
+highlight csActiveString      ctermfg=50
 
-highlight link csLabel             Todo
+highlight csLabel             ctermfg=15
 
 let b:current_syntax = 'ChatScript'
 
