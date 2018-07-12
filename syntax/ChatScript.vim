@@ -11,8 +11,8 @@ endif
 syntax match csWildcard '\*' 
 
 
-syntax match csTopicName '\v\~[a-z_\.A-Z]*'
-syntax match csFunction  '\v\^[a-z_\.A-Z]+'
+syntax match csTopicName '\v\~[a-z_\.A-Z][_0-9a-zA-Z]*'
+syntax match csFunction  '\v\^[a-z_\.A-Z][_0-9a-zA-Z]*'
 
 
 " User permanent variables
