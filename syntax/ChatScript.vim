@@ -14,16 +14,19 @@ syntax match csWildcard '\*'
 syntax match csTopicName '\v\~[a-z_\.A-Z][_0-9a-zA-Z]*'
 syntax match csFunction  '\v\^[a-z_\.A-Z][_0-9a-zA-Z]*'
 
+" Named Constant		#DO_SUBSTITUTE_SYSTEM
+syntax match csNamedConstant '#[a-zA-Z][\._0-9a-zA-Z]*' 
+
 " System variables
 syntax match csSystemVariable  '\v\%[a-zA-Z][\._0-9a-zA-Z\[\]]*'
 
-" User permanent variables
+" User permanent variables (global) $name
 syntax match csPermanentVariable  '\v\$[a-zA-Z][\._0-9a-zA-Z\[\]]*'
 
-" User transient variables
+" User transient variables (global) $$mood
 syntax match csTransientVariable  '\v\$\$[a-zA-Z][\._0-9a-zA-Z\[\]]*'
 
-" Local variables
+" Local variables	$_heartbeat
 syntax match csLocalVariable  '\v\$_[a-zA-Z][\._0-9a-zA-Z\[\]]*'
 
 " Fact set
@@ -55,13 +58,16 @@ syntax match csBlockDelimiter '\v[{}]'
 syntax match csKeyword '\v(topic:|concept:|table:|tablemacro:|outputmacro:|patternmacro:|dualmacro:)'
 syntax match csKeyword '\v(bot:|data:|canon:|query:|plan:|describe:|replace:)' 
 
-" baseline (working)
+" baseline (original)
 " syntax match csComment     '\v^\s*#.*$' 
 " syntax match csTestComment '\v^\s*#!.*$' 
 
 " Works with halfway comments
-syntax match csComment     '#.*$' 
-syntax match csTestComment '#!.*$' 
+syntax match csComment     '#\s.*$' 
+syntax match csTestComment '#!\s.*$' 
+
+" comment block ##<<  junk multiple lines ##>>
+syntax region csCommentBlock start='##<<.*$' end='##>>.*$'
 
 syntax match csString '".*"' 
 syntax match csString '\'.*\'' 
@@ -82,6 +88,7 @@ highlight csFactset           ctermfg=12
 
 highlight csComment           ctermfg=11
 highlight csTestComment       ctermfg=3
+highlight csCommentBlock  	  ctermfg=3
 
 highlight csPatternDelimiter  ctermfg=15
 highlight csBracketsDelimiter ctermfg=7
@@ -99,8 +106,8 @@ highlight csTransientVariable ctermfg=34
 highlight csTopicName         ctermfg=62
 highlight csFunction          ctermfg=37
 
-highlight csBoolean           ctermfg=15
-highlight csConstant          ctermfg=15
+highlight csBoolean           ctermfg=9
+highlight csNamedConstant     ctermfg=1
 
 " strings
 highlight csString            ctermfg=69
